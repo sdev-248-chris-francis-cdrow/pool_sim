@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=3 uid="uid://b67tgerqewkar"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://c3xteaxeuw6r7" path="res://table.tres" id="1_kl0hw"]
+[ext_resource type="PackedScene" uid="uid://bi6noqp3td0pl" path="res://assets/table.glb" id="2_vjl2i"]
+[ext_resource type="Script" uid="uid://c1wp0q762wxxv" path="res://pocket.gd" id="3_67vji"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vjl2i"]
+margin = 0.0
+size = Vector3(2.14481, 0.249, 3.32263)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_67vji"]
+margin = 0.0
+size = Vector3(0.188736, 0.249, 2.46941)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jry6c"]
+margin = 0.0
+size = Vector3(0.188736, 0.249, 1.11215)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bhh2s"]
+height = 1.066
+radius = 0.059082
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kl0hw"]
+size = Vector3(1.62073, 3.34076, 3.02468)
+
+[node name="table" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 3
+physics_material_override = ExtResource("1_kl0hw")
+
+[node name="table" parent="." instance=ExtResource("2_vjl2i")]
+
+[node name="tablebase" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0758362, -0.049485, -0.174377)
+shape = SubResource("BoxShape3D_vjl2i")
+
+[node name="tablesidex" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.71953, 0.0255005, -0.00037384)
+shape = SubResource("BoxShape3D_67vji")
+
+[node name="tableside-x" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.719004, 0.0255005, -0.00037384)
+shape = SubResource("BoxShape3D_67vji")
+
+[node name="tableside-z" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.000353336, 0.0255005, -1.40413)
+shape = SubResource("BoxShape3D_jry6c")
+
+[node name="tablesidez" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.000353336, 0.0255005, 1.40604)
+shape = SubResource("BoxShape3D_jry6c")
+
+[node name="pockets" type="Area3D" parent="."]
+
+[node name="Pocket" type="CollisionShape3D" parent="pockets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.618696, -0.317389, -0.00485606)
+shape = SubResource("CylinderShape3D_bhh2s")
+script = ExtResource("3_67vji")
+
+[node name="Pocket2" type="CollisionShape3D" parent="pockets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.618192, -0.317389, -0.00485606)
+shape = SubResource("CylinderShape3D_bhh2s")
+script = ExtResource("3_67vji")
+
+[node name="Pocket3" type="CollisionShape3D" parent="pockets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.618192, -0.317389, 1.29162)
+shape = SubResource("CylinderShape3D_bhh2s")
+script = ExtResource("3_67vji")
+
+[node name="Pocket4" type="CollisionShape3D" parent="pockets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.617912, -0.317389, 1.29162)
+shape = SubResource("CylinderShape3D_bhh2s")
+script = ExtResource("3_67vji")
+
+[node name="Pocket5" type="CollisionShape3D" parent="pockets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.617699, -0.317389, -1.30036)
+shape = SubResource("CylinderShape3D_bhh2s")
+script = ExtResource("3_67vji")
+
+[node name="Pocket6" type="CollisionShape3D" parent="pockets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.617954, -0.317389, -1.30036)
+shape = SubResource("CylinderShape3D_bhh2s")
+script = ExtResource("3_67vji")
+
+[node name="tablebounds" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tablebounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0324802, 0.5961, -0.0795689)
+shape = SubResource("BoxShape3D_kl0hw")
+
+[connection signal="body_entered" from="pockets" to="pockets/Pocket" method="_on_pockets_body_entered"]
+[connection signal="body_exited" from="tablebounds" to="pockets/Pocket" method="_on_tablebounds_body_exited"]
+
+[editable path="table"]

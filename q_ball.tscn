@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfpjyklxkr10f"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://yhgh3c5ig3la" path="res://ball.tres" id="1_87h5c"]
+[ext_resource type="PackedScene" uid="uid://d3mjyfirfxmii" path="res://assets/Qball.glb" id="2_argbf"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_q0oih"]
+radius = 0.0284782
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_y05rf"]
+
+[node name="CueBall" type="RigidBody3D"]
+mass = 0.16
+physics_material_override = ExtResource("1_87h5c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_q0oih")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_y05rf")
+
+[node name="Qball" parent="." instance=ExtResource("2_argbf")]

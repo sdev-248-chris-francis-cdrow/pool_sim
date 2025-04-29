@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdp30vox2cya"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://c4eomi0wwm3lb" path="res://cue_inactive.tres" id="1_0delh"]
+[ext_resource type="PhysicsMaterial" uid="uid://bujmxuswe7f07" path="res://cue.tres" id="1_suyr1"]
+[ext_resource type="PackedScene" uid="uid://bb20sxouw1bn7" path="res://assets/cue.glb" id="2_0delh"]
+[ext_resource type="Script" uid="uid://bq2tp4pv6boui" path="res://cue.gd" id="2_md8m5"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_md8m5"]
+
+[node name="cue" type="RigidBody3D"]
+mass = 0.001
+physics_material_override = ExtResource("1_0delh")
+gravity_scale = 0.0
+script = ExtResource("2_md8m5")
+move_speed = 0.7
+passive_material = ExtResource("1_0delh")
+active_material = ExtResource("1_suyr1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.013, 0, 0, 0, 0.013, 0, 0, 0, 0.013, 0, 0, 0.723509)
+shape = SubResource("SphereShape3D_md8m5")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0.723509)
+shape = SubResource("SphereShape3D_md8m5")
+
+[node name="cue2" parent="." instance=ExtResource("2_0delh")]
+
+[editable path="cue2"]

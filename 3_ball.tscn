@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1ysojftk3dli"]
+
+[ext_resource type="PackedScene" uid="uid://kjgdi2wsowed" path="res://assets/3ball.glb" id="1_qsm2c"]
+[ext_resource type="PhysicsMaterial" uid="uid://yhgh3c5ig3la" path="res://ball.tres" id="1_x7ntc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_q0oih"]
+radius = 0.0284782
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_y05rf"]
+
+[node name="3Ball" type="RigidBody3D" groups=["balls"]]
+mass = 0.16
+physics_material_override = ExtResource("1_x7ntc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_q0oih")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_y05rf")
+
+[node name="3ball" parent="." instance=ExtResource("1_qsm2c")]
