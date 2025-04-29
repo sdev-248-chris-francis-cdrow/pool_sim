@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dovpbxog51ou0"]
+
+[ext_resource type="Script" uid="uid://crg0la450qjuy" path="res://hud.gd" id="1_37p78"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_37p78"]
+font_size = 32
+
+[node name="hud" type="CanvasLayer"]
+script = ExtResource("1_37p78")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 13.0
+offset_top = 4.0
+offset_right = 1165.0
+offset_bottom = 653.0
+text = "000%"
+label_settings = SubResource("LabelSettings_37p78")

@@ -1,0 +1,105 @@
+[gd_scene load_steps=21 format=3 uid="uid://b8oq7jjcvwvnt"]
+
+[ext_resource type="PackedScene" uid="uid://cdp30vox2cya" path="res://cue.tscn" id="1_074og"]
+[ext_resource type="PackedScene" uid="uid://b67tgerqewkar" path="res://table.tscn" id="2_cegan"]
+[ext_resource type="PackedScene" uid="uid://dfpjyklxkr10f" path="res://q_ball.tscn" id="3_82xsv"]
+[ext_resource type="PackedScene" uid="uid://dthknd4q5oj06" path="res://1_ball.tscn" id="4_getpj"]
+[ext_resource type="PackedScene" uid="uid://dl1sif1ux3c5p" path="res://2_ball.tscn" id="5_ryguw"]
+[ext_resource type="PackedScene" uid="uid://b1ysojftk3dli" path="res://3_ball.tscn" id="6_d13ii"]
+[ext_resource type="PackedScene" uid="uid://hlcmo6u1qvmj" path="res://4_ball.tscn" id="7_1u8w0"]
+[ext_resource type="PackedScene" uid="uid://6lfvvkyx8pc5" path="res://5_ball.tscn" id="8_0odxb"]
+[ext_resource type="PackedScene" uid="uid://ccvufy5vgg2q8" path="res://6_ball.tscn" id="9_lswn8"]
+[ext_resource type="PackedScene" uid="uid://d4e8ywtj1jv7v" path="res://7_ball.tscn" id="10_a6jrf"]
+[ext_resource type="PackedScene" uid="uid://b8maicgx0vifa" path="res://8_ball.tscn" id="11_xuqvo"]
+[ext_resource type="PackedScene" uid="uid://byr0awgjgtuef" path="res://9_ball.tscn" id="12_qsp4k"]
+[ext_resource type="PackedScene" uid="uid://cbe3abaywx40g" path="res://10_ball.tscn" id="13_kq58d"]
+[ext_resource type="PackedScene" uid="uid://yb2eqbtnjg0p" path="res://11_ball.tscn" id="14_seu75"]
+[ext_resource type="PackedScene" uid="uid://vq7gli8bq76" path="res://12_ball.tscn" id="15_htxhm"]
+[ext_resource type="PackedScene" uid="uid://tqwuvq8e7de7" path="res://13_ball.tscn" id="16_jq2sk"]
+[ext_resource type="PackedScene" uid="uid://vm3m02jhokh" path="res://14_ball.tscn" id="17_4k2k6"]
+[ext_resource type="PackedScene" uid="uid://dvetjra7wrtd8" path="res://15_ball.tscn" id="18_0rl1p"]
+[ext_resource type="Script" uid="uid://brbt5b4nk5wcu" path="res://camera.gd" id="19_cegan"]
+[ext_resource type="PackedScene" uid="uid://dovpbxog51ou0" path="res://hud.tscn" id="20_82xsv"]
+
+[node name="main" type="Node3D"]
+
+[node name="cue" parent="." instance=ExtResource("1_074og")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.105, 1.972)
+
+[node name="table" parent="." instance=ExtResource("2_cegan")]
+
+[node name="CueBall" parent="." instance=ExtResource("3_82xsv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.105, 1)
+collision_mask = 7
+
+[node name="1Ball" parent="." instance=ExtResource("4_getpj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.105, -0.8)
+collision_mask = 7
+
+[node name="2Ball" parent="." instance=ExtResource("5_ryguw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.057, 0.105, -1)
+collision_mask = 7
+
+[node name="3Ball" parent="." instance=ExtResource("6_d13ii")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0290692, 0.105, -0.95)
+collision_mask = 7
+
+[node name="4Ball" parent="." instance=ExtResource("7_1u8w0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.02843, 0.105, -0.95)
+collision_mask = 7
+
+[node name="5Ball" parent="." instance=ExtResource("8_0odxb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0572809, 0.105, -0.9)
+collision_mask = 7
+
+[node name="6Ball" parent="." instance=ExtResource("9_lswn8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0575659, 0.105, -0.9)
+collision_mask = 7
+
+[node name="7Ball" parent="." instance=ExtResource("10_a6jrf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.057, 0.105, -1)
+collision_mask = 7
+
+[node name="8Ball" parent="." instance=ExtResource("11_xuqvo")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.105, -0.90057)
+collision_mask = 7
+
+[node name="9Ball" parent="." instance=ExtResource("12_qsp4k")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.085764, 0.105, -0.95)
+collision_mask = 7
+
+[node name="10Ball" parent="." instance=ExtResource("13_kq58d")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.08627, 0.105, -0.95)
+collision_mask = 7
+
+[node name="11Ball" parent="." instance=ExtResource("14_seu75")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0287829, 0.105, -0.85)
+collision_mask = 7
+
+[node name="12Ball" parent="." instance=ExtResource("15_htxhm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.114, 0.105, -1)
+collision_mask = 7
+
+[node name="13Ball" parent="." instance=ExtResource("16_jq2sk")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.105, -1)
+collision_mask = 7
+
+[node name="14Ball" parent="." instance=ExtResource("17_4k2k6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.028498, 0.105, -0.85)
+collision_mask = 7
+
+[node name="15Ball" parent="." instance=ExtResource("18_0rl1p")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.114, 0.105, -1)
+collision_mask = 7
+
+[node name="TableCameraPivot" type="Node3D" parent="."]
+script = ExtResource("19_cegan")
+target = Vector3(0, 0.255, 0)
+
+[node name="OrbitCamera" type="Camera3D" parent="TableCameraPivot"]
+
+[node name="hud" parent="." instance=ExtResource("20_82xsv")]
+
+[connection signal="changed_power" from="cue" to="hud" method="_on_cue_changed_power"]
+
+[editable path="table"]
